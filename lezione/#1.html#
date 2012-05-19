@@ -1,0 +1,421 @@
+<div class="row">
+  
+  <div class="span6">
+
+    <h2>Первый урок</h2>
+
+    <ul>
+      <li>личные местоимения</li>
+      <li>cклонение правильных глаголов по родам</li>
+      <li>отрицательная форма</li>
+      <li>вопросительная форма</li>
+      <li>прошедшее время</li>
+      <li>отрицательное прошедшее время</li>
+      <li>вопросительные местоимения</li>
+    </ul>
+
+  </div>
+
+  <div class="span6">
+    <iframe width="100%" height="320" src="http://www.youtube.com/embed/rvmnq3zQIqQ?rel=0" frameborder="0" allowfullscreen>
+    </iframe>
+  </div>
+
+</div>
+
+<section id="lesson">
+
+  <div class="page-header">
+    <h3>Спряжение правильных глаголов по родам</h3>
+  </div>
+
+  <div class="row">
+
+    <div class="span4">
+      <h4>Неопределенная форма глагола</h4>
+
+      <p>Неопределенная форма глагола имеет
+      окончание <b><tt>-are</tt></b> При спряжении правильного глагола
+      по родам это окончание заменяется на соответствующее числу и
+      роду в таблице.</p>.
+
+    </div>
+
+    <div class="span 4">
+      <h4>Местоимения</h4>
+      <%= 
+         render 'verb_gender_conjugation', 
+         
+           :io  => 'io — я',     :noi  => 'noi — мы',
+           :tu  => 'tu — ты',    :voi  => 'voi — вы',
+           :lui => 'lui — он',   :loro => 'loro — они',
+           :lei => 'lei — она',
+                         :Lei => 'Lei'         
+      %>
+    </div>
+
+    <div class="span4">
+      <h4>Окончания спряжений</h4>
+
+      <%= 
+         render 'verb_gender_conjugation', 
+                
+           :io  => '<b>-o</b>',     :noi  => '<b>-iamo</b>',
+           :tu  => '<b>-i</b>',     :voi  => '<b>-ate</b>',
+           :lui => '<b>-a</b>',     :loro => '<b>-ano</b>',
+           :lei => '<b>-a</b>',
+                      :Lei => '<b>-a</b>'
+      %>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="span4">
+      <p>Глагол <b>parlare</b> — говорить.</p>
+      <%= 
+         render 'verb_gender_conjugation_fast', 
+           :io  => 'parlo',     :noi  => 'parliamo',
+           :tu  => 'parli',     :voi  => 'parliate',
+           :lui => 'parla',     :loro => 'parlano',
+      %>
+    </div>
+  
+    <div class="span4">
+      <p>Глагол <b>mangiare</b> — говорить.</p>
+      <%= 
+         render 'verb_gender_conjugation_fast', 
+           :io  => 'mangio',       :noi  => 'mangiamo',
+           :tu  => 'mangi' + nb,   :voi  => 'mangiate',
+           :lui => 'mangia',       :loro => 'mangiano',
+      %>
+    </div>
+
+    <div class="span4">
+      <p>Глагол <b>guardare</b> — смотреть.</p>
+      <%= 
+         render 'verb_gender_conjugation_fast', 
+
+           :io  => 'guardo',     :noi  => 'guariamo',
+           :tu  => 'guardi',     :voi  => 'guardate',
+           :lui => 'guarda',     :loro => 'guardamo',
+      %>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="span4">
+      <p>Глагол <b>giocare</b> — играть.</p>
+      <%= 
+         render 'verb_gender_conjugation_fast', 
+
+           :io  => 'gioco',     :noi  => 'giociamo',
+           :tu  => 'gioci',     :voi  => 'giocate',
+           :lui => 'gioca',     :loro => 'giocano',
+      %>
+    </div>
+      
+    <div class="span4">
+      <p>Глагол <b>lavorare</b> — работать.</p>
+        <%= 
+           render 'verb_gender_conjugation_fast', 
+           
+           :io  => 'lavoro',     :noi  => 'lavoriamo',
+           :tu  => 'lavori',     :voi  => 'lavorate',
+           :lui => 'lavora',     :loro => 'lavorano',
+
+        %>
+    </div>
+
+    <div class="span4">
+        <p>Глагол <b>amare</b> — любить.</p>
+        <%= 
+           render 'verb_gender_conjugation_fast', 
+           
+           :io  => 'amo',     :noi  => 'amiamo',
+           :tu  => 'ami',     :voi  => 'amate',
+           :lui => 'ama',     :loro => 'amano',
+        %>
+    </div>
+
+  </div>
+  
+  <div class="row">
+
+      <div class="span4">
+        <p>Глагол <b>ascoltare</b> — слушать.</p>
+        <%= 
+           render 'verb_gender_conjugation_fast', 
+           
+           :io  => 'ascolto',     :noi  => 'ascoliamo',
+           :tu  => 'ascolti',     :voi  => 'ascolate',
+           :lui => 'ascolta',     :loro => 'ascoltano',
+        %>
+      </div>
+
+    <div class="span4">
+      <p>Глагол <b>imparare</b> — учить, узнавать.</p>
+      <%= 
+         render 'verb_gender_conjugation_fast', 
+                
+           :io  => 'imparo',     :noi  => 'impariamo',
+           :tu  => 'impari',     :voi  => 'imparate',
+           :lui => 'impara',     :loro => 'imparano',
+
+      %>
+    </div>
+
+    <div class="span4">
+      <p>Глагол <b>abitare</b> — обитать, жить.</p>
+      <%= 
+         render 'verb_gender_conjugation_fast', 
+                
+           :io  => 'ábito',     :noi  => 'abitiamo',
+           :tu  => 'ábiti',     :voi  => 'abitate',
+           :lui => 'ábita',     :loro => 'abitano',
+      %>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="lesson">
+
+  <div class="page-header">
+    <h3>Вопросительная и отрицательная формы</h3>
+  </div>
+
+  <div class="row">
+
+    <div class="span6">
+      <h4>Вопросительная форма</h4>
+      <p>Специальной грамматической конструкции для вопросов в
+        итальянском нет, вопрос определеляется интонацией.</p>
+    </div>
+
+    <div class="span6">
+      <div class="well">
+        <p>
+          <span class="label label-success">Местоимение</span> + 
+          <span class="label label-success">глагол</span> +
+          <span class="label label-important">?</span>
+        </p>
+        <p>
+          <span class="label label-success">Io</span> + 
+          <span class="label label-success">parlo</span> +
+          <span class="label label-important">?</span>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    
+    <div class="span6">
+      <h4>Отрицательная форма</h4>
+      <p>Получается если между местоимением и глаголом поставить частицу <b>non</b>.</p>
+    </div>
+
+    <div class="span6">
+      <div class="well">
+        <p>
+          <span class="label label-success">Местоимение</span> + 
+          <span class="label label-important">non</span> +
+          <span class="label label-success">глагол</span>.
+        </p>
+        <p>
+          <span class="label label-success">Io</span> + 
+          <span class="label label-important">non</span> +
+          <span class="label label-success">parlo</span>.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</section
+
+<section id="lesson">
+
+  <div class="page-header">
+    <h3>Прошедшее время</h3>
+  </div>
+
+  <div class="row">
+    
+    <div class="span12">
+      <p>Прошедшее время образуется с помощью неправильного глагола <b>avere</b> — иметь. </p>
+
+      <p> Утверждение:
+        <span class="label label-success">Местоимение</span> + 
+        <span class="label label-important">avere</span> +
+        <span class="label label-success">корень глагола</span> +
+        <span class="label label-important">окончание -ato</span>.
+      </p>
+
+      <p> Отрицание:
+        <span class="label label-success">Местоимение</span> + 
+        <span class="label label-important">non</span> +
+        <span class="label label-important">avere</span> +
+        <span class="label label-success">корень глагола</span> +
+        <span class="label label-important">окончание -ato</span>.
+      </p>
+
+    </div>
+
+  </div>
+
+  <hr />
+
+  <div class="row">
+    
+    <div class="span4">
+      <b>Спряжение глагола avere</b>
+      <%= 
+         render 'verb_gender_conjugation_fast', 
+                
+           :io  => 'ho',     :noi  => 'abbiamo',
+           :tu  => 'hai',    :voi  => 'avete',
+           :lui => 'ha',     :loro => 'hanno'
+      %>
+
+      <p class="muted"><%= nb %> Буква «h» не читается.</p>
+
+    </div>
+
+    <div class="span8">
+      <b>Глагол parlare в прошедшем времени</b>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <th></th>
+          <th>Настоящее время</th>
+          <th>Прошедшее время</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="3" class="vertical-text">Ед. ч.</td>
+            <td>io parlo — я говорю</td>
+            <td>io ho parlato — я говорил</td>
+          </tr>
+          <tr>
+            <td>tu parli — ты говоришь</td>
+            <td>tu hai parlate — ты говорил</td>
+          </tr>
+          <tr>
+            <td>lui parla — он говорит</td>
+            <td>lui ha parlato — он говорил</td>
+          </tr>
+          <tr>
+            <td rowspan="3">Мн. ч.</td>
+            <td>noi parliamo — мы говорим</td>
+            <td>noi abbiamo parlato — мы говорили</td>
+          </tr>
+          <tr>
+            <td>voi parlate — вы говорите</td>
+            <td>voi avete parlato — вы говорили</td>
+          </tr>
+          <tr>
+            <td>loro parlano — они говорят</td>
+            <td>loro hanno parlato — они говорили</td>
+          </tr>
+          <tr>
+            <td>Ув. о.</td>
+            <td>Lei parla — Вы говорите</td>
+            <td>Lei ha parlato — Вы говорили </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="lesson">
+
+  <div class="page-header">
+    <h3>Вопросительные местоимения</h3>
+  </div>
+
+  <div class="row">
+    
+    <div class="span6">
+      <div class="well">
+        <p><b>Chi? — Кто?</b></p>
+        <p>Chi parla? — Кто говорит?</p>
+        <p>Chi non lavora, non mangi. — Кто не работает, тот не ест.</p>
+      </div>
+    </div>
+
+    <div class="span6">
+      <div class="well">
+        <p><b>Che cosa? — Что?</b> <span class="muted">(какая вещь?)</span></p>
+        <p>Che cosa tu mangi? — Что ты ешь?</p>
+        <p>Che cosa tu hai mangiato? — Что ты съел?</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    
+    <div class="span6">
+      <div class="well">
+        <p><b>Dove? — Где?</b></p>
+        <p>Dove tu abiti? — Где ты живешь?</p>
+        <p>Dove tu lavori? — Где ты работаешь?</p>
+      </div>
+    </div>
+
+
+    <div class="span6">
+      <div class="well">
+        <p><b>Perche? — Зачем? Почему?</b></p>
+        <p>Perche tu non ascolti? — Почему ты не слушаешь?</p>
+        <p>Perche lui non lavora? — Почему он не работает?</p>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="row">
+
+    <div class="span6">
+      <div class="well">
+        <p><b>Quando? — Когда?</b></p>
+        <p>Quando tu lavori? — Когда ты работаешь?</p>
+      </div>
+    </div>
+    
+    <div class="span6">
+      <div class="well">
+        <p><b>Come? — Как?</b></p>
+        <p>Come lui lavora? — Как он работает?</p>
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    
+    <div class="span6 offset3">
+      <div class="well">
+        <p><b>Quanto? — Сколько?</b></p>
+        <p>Quanto pizza tu hai mangi? — Сколько пиццы ты съел?</p>
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+
+</section>
