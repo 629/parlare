@@ -23,6 +23,16 @@
       h3 > small {
         margin-left: 10px;
       } 
+      
+      .italian {
+        font-family: monospace; 
+        font-style: normal;
+      }
+
+      .ending {
+        font-family: monospace; 
+        font-weight: bold;
+      }
 
     </style>
 
@@ -170,12 +180,13 @@
 
       <footer>
         <hr />
-
-    <!--    <p class="muted">Спасибо создателям nanoc, bootstrap и github.pages за отличные инструменты.</p> -->
-
+        <!-- <p class="muted">Спасибо создателям nanoc, bootstrap и github.pages за отличные инструменты.</p> -->
       </footer>
 
     </div> <!-- /container -->
+
+    <script src="jquery.js"></script>
+    <script src="bootstrap-min.js"></script>
 
   </body>
 </html>

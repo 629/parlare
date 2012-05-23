@@ -73,11 +73,11 @@
 
     <div class="container">
 
-      /* ========================================================
- * bootstrap-tabs.js v1.3.0
- * http://twitter.github.com/bootstrap/javascript.html#tabs
- * ========================================================
- * Copyright 2011 Twitter, Inc.
+      /* ============================================================
+ * bootstrap-button.js v2.0.3
+ * http://twitter.github.com/bootstrap/javascript.html#buttons
+ * ============================================================
+ * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -90,51 +90,85 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * ======================================================== */
+ * ============================================================ */
 
 
-!function( $ ){
+!function ($) {
 
-  function activate ( element, container ) {
-    container.find('.active').removeClass('active')
-    element.addClass('active')
+  "use strict"; // jshint ;_;
+
+
+ /* BUTTON PUBLIC CLASS DEFINITION
+  * ============================== */
+
+  var Button = function (element, options) {
+    this.$element = $(element)
+    this.options = $.extend({}, $.fn.button.defaults, options)
   }
 
-  function tab( e ) {
-    var $this = $(this)
-      , href = $this.attr('href')
-      , $ul = $this.closest('ul')
-      , $controlled
+  Button.prototype.setState = function (state) {
+    var d = 'disabled'
+      , $el = this.$element
+      , data = $el.data()
+      , val = $el.is('input') ? 'val' : 'html'
 
-    if (/^#\w+/.test(href)) {
-      e.preventDefault()
+    state = state + 'Text'
+    data.resetText || $el.data('resetText', $el[val]())
 
-      if ($this.hasClass('active')) {
-        return
-      }
+    $el[val](data[state] || this.options[state])
 
-      $href = $(href)
+    // push to event loop to allow forms to submit
+    setTimeout(function () {
+      state == 'loadingText' ?
+        $el.addClass(d).attr(d, d) :
+        $el.removeClass(d).removeAttr(d)
+    }, 0)
+  }
 
-      activate($this.parent('li'), $ul)
-      activate($href, $href.parent())
-    }
+  Button.prototype.toggle = function () {
+    var $parent = this.$element.parent('[data-toggle="buttons-radio"]')
+
+    $parent && $parent
+      .find('.active')
+      .removeClass('active')
+
+    this.$element.toggleClass('active')
   }
 
 
- /* TABS/PILLS PLUGIN DEFINITION
-  * ============================ */
+ /* BUTTON PLUGIN DEFINITION
+  * ======================== */
 
-  $.fn.tabs = $.fn.pills = function ( selector ) {
+  $.fn.button = function (option) {
     return this.each(function () {
-      $(this).delegate(selector || '.tabs li > a, .pills > li > a', 'click', tab)
+      var $this = $(this)
+        , data = $this.data('button')
+        , options = typeof option == 'object' && option
+      if (!data) $this.data('button', (data = new Button(this, options)))
+      if (option == 'toggle') data.toggle()
+      else if (option) data.setState(option)
     })
   }
 
-  $(document).ready(function () {
-    $('body').tabs('ul[data-tabs] li > a, ul[data-pills] > li > a')
+  $.fn.button.defaults = {
+    loadingText: 'loading...'
+  }
+
+  $.fn.button.Constructor = Button
+
+
+ /* BUTTON DATA-API
+  * =============== */
+
+  $(function () {
+    $('body').on('click.button.data-api', '[data-toggle^=button]', function ( e ) {
+      var $btn = $(e.target)
+      if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')
+      $btn.button('toggle')
+    })
   })
 
-}( window.jQuery || window.ender );
+}(window.jQuery);
 
       <footer>
         <hr />

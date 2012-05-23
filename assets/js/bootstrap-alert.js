@@ -73,11 +73,11 @@
 
     <div class="container">
 
-      /* ========================================================
- * bootstrap-tabs.js v1.3.0
- * http://twitter.github.com/bootstrap/javascript.html#tabs
- * ========================================================
- * Copyright 2011 Twitter, Inc.
+      /* ==========================================================
+ * bootstrap-alert.js v2.0.3
+ * http://twitter.github.com/bootstrap/javascript.html#alerts
+ * ==========================================================
+ * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -90,51 +90,79 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * ======================================================== */
+ * ========================================================== */
 
 
-!function( $ ){
+!function ($) {
 
-  function activate ( element, container ) {
-    container.find('.active').removeClass('active')
-    element.addClass('active')
-  }
+  "use strict"; // jshint ;_;
 
-  function tab( e ) {
-    var $this = $(this)
-      , href = $this.attr('href')
-      , $ul = $this.closest('ul')
-      , $controlled
 
-    if (/^#\w+/.test(href)) {
-      e.preventDefault()
+ /* ALERT CLASS DEFINITION
+  * ====================== */
 
-      if ($this.hasClass('active')) {
-        return
+  var dismiss = '[data-dismiss="alert"]'
+    , Alert = function (el) {
+        $(el).on('click', dismiss, this.close)
       }
 
-      $href = $(href)
+  Alert.prototype.close = function (e) {
+    var $this = $(this)
+      , selector = $this.attr('data-target')
+      , $parent
 
-      activate($this.parent('li'), $ul)
-      activate($href, $href.parent())
+    if (!selector) {
+      selector = $this.attr('href')
+      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
     }
+
+    $parent = $(selector)
+
+    e && e.preventDefault()
+
+    $parent.length || ($parent = $this.hasClass('alert') ? $this : $this.parent())
+
+    $parent.trigger(e = $.Event('close'))
+
+    if (e.isDefaultPrevented()) return
+
+    $parent.removeClass('in')
+
+    function removeElement() {
+      $parent
+        .trigger('closed')
+        .remove()
+    }
+
+    $.support.transition && $parent.hasClass('fade') ?
+      $parent.on($.support.transition.end, removeElement) :
+      removeElement()
   }
 
 
- /* TABS/PILLS PLUGIN DEFINITION
-  * ============================ */
+ /* ALERT PLUGIN DEFINITION
+  * ======================= */
 
-  $.fn.tabs = $.fn.pills = function ( selector ) {
+  $.fn.alert = function (option) {
     return this.each(function () {
-      $(this).delegate(selector || '.tabs li > a, .pills > li > a', 'click', tab)
+      var $this = $(this)
+        , data = $this.data('alert')
+      if (!data) $this.data('alert', (data = new Alert(this)))
+      if (typeof option == 'string') data[option].call($this)
     })
   }
 
-  $(document).ready(function () {
-    $('body').tabs('ul[data-tabs] li > a, ul[data-pills] > li > a')
+  $.fn.alert.Constructor = Alert
+
+
+ /* ALERT DATA-API
+  * ============== */
+
+  $(function () {
+    $('body').on('click.alert.data-api', dismiss, Alert.prototype.close)
   })
 
-}( window.jQuery || window.ender );
+}(window.jQuery);
 
       <footer>
         <hr />

@@ -44,7 +44,7 @@
     <div class="span 4">
       <h4>Местоимения</h4>
       <%= 
-         render 'verb_gender_conjugation', 
+         render 'gender_conjugation_table', 
          
            :io  => 'io — я',     :noi  => 'noi — мы',
            :tu  => 'tu — ты',    :voi  => 'voi — вы',
@@ -58,7 +58,7 @@
       <h4>Окончания спряжений</h4>
 
       <%= 
-         render 'verb_gender_conjugation', 
+         render 'gender_conjugation_table', :pronouns => false, :bold => true
                 
            :io  => '<b>-o</b>',     :noi  => '<b>-iamo</b>',
            :tu  => '<b>-i</b>',     :voi  => '<b>-ate</b>',
@@ -75,33 +75,17 @@
 
     <div class="span4">
       <p>Глагол <b>parlare</b> — говорить.</p>
-      <%= 
-         render 'verb_gender_conjugation_fast', 
-           :io  => 'parlo',     :noi  => 'parliamo',
-           :tu  => 'parli',     :voi  => 'parliate',
-           :lui => 'parla',     :loro => 'parlano',
-      %>
+      <%= render_conjugation_table 'parlare' %>
     </div>
   
     <div class="span4">
       <p>Глагол <b>mangiare</b> — говорить.</p>
-      <%= 
-         render 'verb_gender_conjugation_fast', 
-           :io  => 'mangio',       :noi  => 'mangiamo',
-           :tu  => 'mangi' + nb,   :voi  => 'mangiate',
-           :lui => 'mangia',       :loro => 'mangiano',
-      %>
+      <%= render_conjugation_table 'mangiare' %>
     </div>
 
     <div class="span4">
       <p>Глагол <b>guardare</b> — смотреть.</p>
-      <%= 
-         render 'verb_gender_conjugation_fast', 
-
-           :io  => 'guardo',     :noi  => 'guariamo',
-           :tu  => 'guardi',     :voi  => 'guardate',
-           :lui => 'guarda',     :loro => 'guardamo',
-      %>
+      <%= render_conjugation_table 'guardare' %>
     </div>
 
   </div>
@@ -110,36 +94,17 @@
 
     <div class="span4">
       <p>Глагол <b>giocare</b> — играть.</p>
-      <%= 
-         render 'verb_gender_conjugation_fast', 
-
-           :io  => 'gioco',     :noi  => 'giociamo',
-           :tu  => 'gioci',     :voi  => 'giocate',
-           :lui => 'gioca',     :loro => 'giocano',
-      %>
+      <%= render_conjugation_table 'giocare' %>
     </div>
       
     <div class="span4">
       <p>Глагол <b>lavorare</b> — работать.</p>
-        <%= 
-           render 'verb_gender_conjugation_fast', 
-           
-           :io  => 'lavoro',     :noi  => 'lavoriamo',
-           :tu  => 'lavori',     :voi  => 'lavorate',
-           :lui => 'lavora',     :loro => 'lavorano',
-
-        %>
+      <%= render_conjugation_table 'lavorare' %>
     </div>
 
     <div class="span4">
         <p>Глагол <b>amare</b> — любить.</p>
-        <%= 
-           render 'verb_gender_conjugation_fast', 
-           
-           :io  => 'amo',     :noi  => 'amiamo',
-           :tu  => 'ami',     :voi  => 'amate',
-           :lui => 'ama',     :loro => 'amano',
-        %>
+        <%= render_conjugation_table 'amare' %>
     </div>
 
   </div>
@@ -148,36 +113,17 @@
 
       <div class="span4">
         <p>Глагол <b>ascoltare</b> — слушать.</p>
-        <%= 
-           render 'verb_gender_conjugation_fast', 
-           
-           :io  => 'ascolto',     :noi  => 'ascoliamo',
-           :tu  => 'ascolti',     :voi  => 'ascolate',
-           :lui => 'ascolta',     :loro => 'ascoltano',
-        %>
+        <%= render_conjugation_table 'ascoltare' %>
       </div>
 
     <div class="span4">
       <p>Глагол <b>imparare</b> — учить, узнавать.</p>
-      <%= 
-         render 'verb_gender_conjugation_fast', 
-                
-           :io  => 'imparo',     :noi  => 'impariamo',
-           :tu  => 'impari',     :voi  => 'imparate',
-           :lui => 'impara',     :loro => 'imparano',
-
-      %>
+      <%= render_conjugation_table 'imparare' %>
     </div>
 
     <div class="span4">
       <p>Глагол <b>abitare</b> — обитать, жить.</p>
-      <%= 
-         render 'verb_gender_conjugation_fast', 
-                
-           :io  => 'ábito',     :noi  => 'abitiamo',
-           :tu  => 'ábiti',     :voi  => 'abitate',
-           :lui => 'ábita',     :loro => 'abitano',
-      %>
+      <%= render_conjugation_table 'abitare' %>
     </div>
 
   </div>
@@ -278,7 +224,7 @@
     <div class="span4">
       <b>Спряжение глагола avere</b>
       <%= 
-         render 'verb_gender_conjugation_fast', 
+         render 'gender_conjugation_table', conjugation('avere'
                 
            :io  => 'ho',     :noi  => 'abbiamo',
            :tu  => 'hai',    :voi  => 'avete',
